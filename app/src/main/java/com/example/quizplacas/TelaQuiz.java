@@ -2,7 +2,10 @@ package com.example.quizplacas;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -63,7 +66,10 @@ public class TelaQuiz extends AppCompatActivity {
 
         // 3. EMBARALHAR AS PERGUNTAS
         Collections.shuffle(questoes);
-
+        btn1.setTextColor(Color.WHITE);
+        btn2.setTextColor(Color.WHITE);
+        btn3.setTextColor(Color.WHITE);
+        btn4.setTextColor(Color.WHITE);
         // 4. CHAMAR A PRIMEIRA QUESTÃO
         atualizarTela();
     }
@@ -98,24 +104,50 @@ public class TelaQuiz extends AppCompatActivity {
 
 
     public void verificarResposta(View view) {
-        Button btnClicado = (Button) view;
+        final Button btnClicado = (Button) view;
         String respostaEscolhida = btnClicado.getText().toString();
         String respostaCorreta = questoes.get(cont).getRespostaCorreta();
+        final ColorStateList corOriginal = ColorStateList.valueOf(Color.parseColor("#81C7F3"));
 
+        // 1. Define a cor do feedback (Verde ou Vermelho)
         if (respostaEscolhida.equals(respostaCorreta)) {
             acertos++;
-        }
-
-        cont++; // Vai para o índice da próxima questão
-
-        if (cont < questoes.size()) {
-            atualizarTela();
+            btnClicado.setBackgroundTintList(ColorStateList.valueOf(Color.GREEN));
         } else {
-            // Fim do Quiz: Envia para a tela final
-            Intent intent = new Intent(this, TelaAcertos.class);
-            intent.putExtra("acertos", acertos);
-            startActivity(intent);
-            finish(); // Encerra esta atividade para não voltar ao quiz ao apertar 'voltar'
+            btnClicado.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
         }
+
+        // 2. BLOQUEIA os botões para o usuário não clicar em outro enquanto espera
+        btn1.setEnabled(false); btn2.setEnabled(false);
+        btn3.setEnabled(false); btn4.setEnabled(false);
+
+        // 3. O "HANDLER" é o seu sleep que funciona
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Tudo aqui dentro roda DEPOIS de 700ms
+
+                // Volta a cor original
+                btn1.setBackgroundTintList(corOriginal);
+                btn2.setBackgroundTintList(corOriginal);
+                btn3.setBackgroundTintList(corOriginal);
+                btn4.setBackgroundTintList(corOriginal);
+
+                // Reativa os botões
+                btn1.setEnabled(true); btn2.setEnabled(true);
+                btn3.setEnabled(true); btn4.setEnabled(true);
+
+                cont++;
+
+                if (cont < questoes.size()) {
+                    atualizarTela();
+                } else {
+                    Intent intent = new Intent(TelaQuiz.this, TelaAcertos.class);
+                    intent.putExtra("acertos", acertos);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        }, 700); // Esse é o tempo que a cor fica na tela
     }
 }
