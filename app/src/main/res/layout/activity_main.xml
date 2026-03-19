@@ -8,29 +8,56 @@
     tools:context=".MainActivity">
 
     <FrameLayout
+
         android:layout_width="match_parent"
+
         android:layout_height="match_parent">
 
+
+
         <ImageView
+
             android:id="@+id/imageView5"
+
             android:layout_width="match_parent"
+
             android:layout_height="match_parent"
+
             android:src="@drawable/imagemmenu"
+
             android:scaleType="centerCrop"
+
             app:srcCompat="@drawable/imagemmenu" />
 
+
+
         <Button
+
             android:id="@+id/btnIniciar"
+
             android:layout_width="200dp"
+
             android:layout_height="60dp"
+
             android:layout_gravity="bottom|center_horizontal"
+
             android:layout_marginBottom="100dp"
+
             android:backgroundTint="#F4ECEC"
+
             android:text="Iniciar"
+
             android:textColor="#4FC3F7"
+
             app:backgroundTint="#F5F9FF"
+
             app:cornerRadius="0px"
+
             android:onClick="proximatela"/>
 
+
+
     </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

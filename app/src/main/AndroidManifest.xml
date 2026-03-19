@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizPlacas">
         <activity
-            android:name=".Acertos"
+            android:name=".TelaAcertos"
             android:exported="false" />
         <activity
             android:name=".TelaQuiz"
