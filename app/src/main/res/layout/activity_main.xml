@@ -29,6 +29,8 @@
             android:text="Iniciar"
             android:textColor="#4FC3F7"
             app:backgroundTint="#F5F9FF"
-            app:cornerRadius="0px" />
+            app:cornerRadius="0px"
+            android:onClick="proximatela"/>
+
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

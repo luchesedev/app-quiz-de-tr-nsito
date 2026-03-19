@@ -7,8 +7,8 @@ public class Questao {
     private String respostaErrada2;
     private String respostaErrada3;
 
-    public Questao(int idimagem, String respostaCorreta, String respostaErrada1, String respostaErrada2, String respostaErrada3) {
-        Idimagem = idimagem;
+    public Questao(int Idimagem, String respostaCorreta, String respostaErrada1, String respostaErrada2, String respostaErrada3) {
+        Idimagem = Idimagem;
         this.respostaCorreta = respostaCorreta;
         this.respostaErrada1 = respostaErrada1;
         this.respostaErrada2 = respostaErrada2;

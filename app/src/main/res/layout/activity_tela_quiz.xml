@@ -7,4 +7,74 @@
     android:layout_height="match_parent"
     tools:context=".TelaQuiz">
 
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/planofundoquiz" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="230dp"
+            android:text="Qual é esta placa?"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imgplaca"
+            android:layout_width="150dp"
+            android:layout_height="155dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="100dp"
+            android:layout_marginBottom="15dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/lombada" />
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="220dp"
+            android:text="Alternativa A"
+            app:backgroundTint="#81C7F3" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="170dp"
+            android:text="Alternativa B"
+            app:backgroundTint="#81C7F3" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="120dp"
+            android:text="Alternativa C"
+            app:backgroundTint="#81C7F3" />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="70dp"
+            android:text="Alternativa D"
+            app:backgroundTint="#81C7F3" />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
