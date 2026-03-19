@@ -148,6 +148,6 @@ public class TelaQuiz extends AppCompatActivity {
                     finish();
                 }
             }
-        }, 700); // Esse é o tempo que a cor fica na tela
+        }, 400); // Esse é o tempo que a cor fica na tela
     }
 }
